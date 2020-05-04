@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Nomina</title>
+    </h:head>
+    <f:metadata>
+        <f:viewAction action="#{calculoNomina.obtenerSueldo}" />
+    </f:metadata>
+    <h:body>
+        <h:graphicImage url = "resources/logo.jpg" height="15%" width="15%" />
+        <center>
+            <h2>Nomina</h2>
+        
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel for="txtNombreCompleto" value="Nombre del Empleado: "/>
+                    <h:outputLabel id="txtNombreCompleto" value="#{controladorEmpleado.nombre} #{controladorEmpleado.apellido}"/>
+
+                    <h:outputLabel for="txtCedula" value="Cédula: "/>
+                    <h:outputLabel id="txtCedula" value="#{controladorEmpleado.cedula}"/>
+
+                    <h:outputLabel for="txtFechaNacimiento" value="Fecha de Nacimiento: "/>
+                    <h:outputLabel id="txtFechaNacimiento" value="#{controladorEmpleado.fechaNacimiento}"/>
+
+                    <h:outputLabel for="txtEstudio" value="Nivel de Educación: "/>
+                    <h:outputLabel id="txtEstudio" value="#{controladorEmpleado.nivelEstudio}"/>
+
+                    <h:outputLabel for="txtIdiomas" value="Idiomas: "/>
+                    <h:dataTable value="#{controladorEmpleado.idiomasDominados}" var="item">
+                        <h:column>
+                            <h:outputLabel value="#{item}"/>
+                        </h:column>
+                    </h:dataTable>
+                    
+                    <h:outputLabel for="txtDiasTrabajados" value="Dias trabajados: "/>
+                    <h:outputLabel id="txtDiasTrabajados" value="${controladorEmpleado.diasTrabajados}"/>
+                    
+                    <h:outputLabel for="txtNomina" value="Nomina: "/>
+                    <h:outputLabel id="txtNomina" value="$ ${calculoNomina.sueldoTotal}"/>
+                </h:panelGrid>
+            </h:form>
+        </center>
+    </h:body>
+</html>
+

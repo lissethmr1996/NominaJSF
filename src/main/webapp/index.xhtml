@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+    <h:head>
+        <title>Nomina</title>
+    </h:head>
+    <h:body>
+        <h:graphicImage url = "resources/logo.jpg" height="15%" width="15%" />
+        <center>
+            <h2>Formulario de registro del Empleado</h2>
+            <h:form>
+                <h:panelGrid columns="3">
+                    <h:outputLabel for="txtCedula" value="Cédula: "/>
+                    <h:inputText id="txtCedula" label="Número de documento" required="true" value="#{controladorEmpleado.cedula}"/>
+                    <h:message for="txtCedula"/>
+
+                    <h:outputLabel for="txtNombre" value="Nombre: "/>
+                    <h:inputText id="txtNombre" label="Ingrese el Nombre" required="true" value="#{controladorEmpleado.nombre}"/>
+                    <h:message for="txtNombre"/>
+
+                    <h:outputLabel for="txtApellido" value="Apellido: "/>
+                    <h:inputText id="txtApellido" label="Ingrese el Apellido" required="true" value="#{controladorEmpleado.apellido}"/>
+                    <h:message for="txtApellido"/>
+
+                    <h:outputLabel for="txtNacimiento" value="Fecha de Nacimiento: "/>
+                    <h:inputText id="txtNacimiento" label="Ingrese la fecha de Nacimiento" required="true" value="#{controladorEmpleado.fechaNacimiento}"/>
+                    <h:message for="txtNacimiento"/>
+
+                    <h:outputLabel for="estudio" value="Nivel Educativo:"/>
+                    <h:selectOneRadio id="estudio" value="#{controladorEmpleado.nivelEstudio}">
+                        <f:selectItem itemLabel="Primaria" itemValue="Primaria"/>
+                        <f:selectItem itemLabel="Pecundaria" itemValue="Secundaria"/>
+                        <f:selectItem itemLabel="Tecnico" itemValue="Tecnico"/>
+                        <f:selectItem itemLabel="Tecnologo" itemValue="Tecnologo"/>
+                        <f:selectItem itemLabel="Profesional" itemValue="Profesional"/>
+                        <f:selectItem itemLabel="Magistres" itemValue="Magistres"/>
+                        <h:message for="estudio"/>
+                    </h:selectOneRadio>
+                    <h:message for="estudio"/>
+
+                    <h:outputLabel for="idioma" value="Idiomas:"/>
+                    <h:selectManyCheckbox id="idioma" label="idiomas" value="#{controladorEmpleado.idiomasDominados}">
+                        <f:selectItem itemLabel="Ingles" itemValue="Ingles"/>
+                        <f:selectItem itemLabel="Frances" itemValue="Frances"/>
+                        <f:selectItem itemLabel="Italiano" itemValue="Italiano"/>
+                        <f:selectItem itemLabel="Aleman" itemValue="Aleman"/>
+                        <f:selectItem itemLabel="Portugues" itemValue="Portugues"/>
+                        <f:selectItem itemLabel="Mandarin" itemValue="Mandarin"/>
+                    </h:selectManyCheckbox>
+                    <h:message for="idioma"/>
+                    
+                    <h:outputLabel for="txtSueldoBase" value="Sueldo base: "/>
+                    <h:inputText id="txtSueldoBase" label="Sueldo base" required="true" value="#{controladorEmpleado.sueldoBase}"/>
+                    <h:message for="txtSueldoBase"/>
+                    
+                    <h:outputLabel for="txtDiasTrabajados" value="Dias tabajados: "/>
+                    <h:inputText id="txtDiasTrabajados" label="Dias trabajados" required="true" value="#{controladorEmpleado.diasTrabajados}"/>
+                    <h:message for="txtDiasTrabajados"/>
+
+                    <h:commandButton value="Envíar" action="nomina?faces-redirect=true"></h:commandButton>
+                </h:panelGrid>
+            </h:form>
+        </center>
+    </h:body>
+</html>
+
